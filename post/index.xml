@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on pedro querido</title>
-    <link>https://pedroq.org/post/</link>
+    <link>http://pedroq.org/post/</link>
     <description>Recent content in Posts on pedro querido</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 08 May 2014 14:05:00 +0100</lastBuildDate>
-    <atom:link href="https://pedroq.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://pedroq.org/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Q&#39;s album pick of the month: April</title>
-      <link>https://pedroq.org/2014/05/qs-album-pick-of-the-month-april/</link>
+      <link>http://pedroq.org/2014/05/qs-album-pick-of-the-month-april/</link>
       <pubDate>Thu, 08 May 2014 14:05:00 +0100</pubDate>
       
-      <guid>https://pedroq.org/2014/05/qs-album-pick-of-the-month-april/</guid>
+      <guid>http://pedroq.org/2014/05/qs-album-pick-of-the-month-april/</guid>
       <description>
 
 &lt;p&gt;During the last month I&amp;rsquo;ve been in a math rock mood, probably thanks to my serious addicion to Crash of Rhinos. My pick for April is:&lt;/p&gt;
@@ -29,10 +29,10 @@
     
     <item>
       <title>Q&#39;s album pick of the month: March</title>
-      <link>https://pedroq.org/2014/04/qs-album-pick-of-the-month-march/</link>
+      <link>http://pedroq.org/2014/04/qs-album-pick-of-the-month-march/</link>
       <pubDate>Mon, 07 Apr 2014 03:10:00 +0100</pubDate>
       
-      <guid>https://pedroq.org/2014/04/qs-album-pick-of-the-month-march/</guid>
+      <guid>http://pedroq.org/2014/04/qs-album-pick-of-the-month-march/</guid>
       <description>
 
 &lt;p&gt;Welcome to the first post of the &lt;em&gt;Q&amp;rsquo;s album pick of the month&lt;/em&gt; series! Without further ado, the album that I pick for March is:&lt;/p&gt;
@@ -50,10 +50,10 @@ Great riffs, great drumming and tremendous energy from the first to the last tra
     
     <item>
       <title>Introducing: Q&#39;s album pick of the month</title>
-      <link>https://pedroq.org/2014/03/introducing-qs-album-pick-of-the-month/</link>
+      <link>http://pedroq.org/2014/03/introducing-qs-album-pick-of-the-month/</link>
       <pubDate>Mon, 31 Mar 2014 00:24:00 +0100</pubDate>
       
-      <guid>https://pedroq.org/2014/03/introducing-qs-album-pick-of-the-month/</guid>
+      <guid>http://pedroq.org/2014/03/introducing-qs-album-pick-of-the-month/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;re part of my friend circle, you surely know that I am a serious music addict. I&amp;rsquo;m the guy who&amp;rsquo;s frequently telling you to &amp;ldquo;give {&lt;em&gt;band name here&lt;/em&gt;} a listen!&amp;ldquo;.
 I&amp;rsquo;m also the guy whose opinion some people trust when they are looking for something new to add to their music collection.&lt;/p&gt;
 
@@ -67,10 +67,10 @@ I&amp;rsquo;m also the guy whose opinion some people trust when they are looking
     
     <item>
       <title>Adding multilingual support to your Windows Phone application using the Multilingual App Toolkit</title>
-      <link>https://pedroq.org/2013/08/adding-multilingual-support-to-your-windows-phone-application-using-the-multilingual-app-toolkit/</link>
+      <link>http://pedroq.org/2013/08/adding-multilingual-support-to-your-windows-phone-application-using-the-multilingual-app-toolkit/</link>
       <pubDate>Mon, 19 Aug 2013 14:59:00 +0100</pubDate>
       
-      <guid>https://pedroq.org/2013/08/adding-multilingual-support-to-your-windows-phone-application-using-the-multilingual-app-toolkit/</guid>
+      <guid>http://pedroq.org/2013/08/adding-multilingual-support-to-your-windows-phone-application-using-the-multilingual-app-toolkit/</guid>
       <description>
 
 &lt;p&gt;Windows Phone Store is currently available in 191 countries. This allows your application to have a global customer reach. This also means a lot of customer diversity. Language is one of these differences. Building and application that can target multiple languages can help provide a great user experience for as many users around the world as possible. &lt;br /&gt;
@@ -88,7 +88,7 @@ The Multilingual App Toolkit helps you in this process. It allows you to easily 
 
 &lt;p&gt;For this article we&amp;rsquo;ll create a simple Hello world! application based on the Windows Phone App template. It is a simple page with a Button and a TextBlock which displays a message when you tap the button.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT1.gif&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT1.gif&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;This is the code for the &lt;strong&gt;MainPage.xaml&lt;/strong&gt;:&lt;/p&gt;
@@ -115,26 +115,26 @@ The Multilingual App Toolkit helps you in this process. It allows you to easily 
 
 &lt;p&gt;A few entries were added to the &lt;strong&gt;AppResources.resx&lt;/strong&gt;. It looks like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT2.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT2.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h2 id=&#34;enable-the-multilingual-app-toolkit:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Enable the Multilingual App Toolkit&lt;/h2&gt;
 
 &lt;p&gt;To begin using the Multilingual App Toolkit you must first enable it. Open your project in Visual Studio, open &lt;strong&gt;Tools&lt;/strong&gt; menu and select &lt;strong&gt;Enable Multilingual App Toolkit&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT3.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT3.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h2 id=&#34;add-new-languages:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Add new languages&lt;/h2&gt;
 
 &lt;p&gt;To add a new language, go to the Solution Explorer and right-click your project. Select &lt;strong&gt;Add translation languages&amp;hellip;&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT4.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT4.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;In the &lt;em&gt;Translation Languages&lt;/em&gt; window select the language(s) you want to add. In this example we&amp;rsquo;ll add Portuguese localization to our application.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT5.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT5.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;A new file called &lt;strong&gt;AppResources.&lt;em&gt;&lt;culture-code&gt;&lt;/em&gt;.xlf&lt;/strong&gt; is added to the &lt;em&gt;Resources&lt;/em&gt; folder. This is a &lt;a href=&#34;https://en.wikipedia.org/wiki/XLIFF&#34;&gt;XLIFF&lt;/a&gt;] file where localizable data is stored. You can export and import this file into your project. This allows you to share this file with a translator and later import it into your project. These &lt;em&gt;.xlf&lt;/em&gt; files are converted into &lt;em&gt;.resx&lt;/em&gt; files during compilation. These are are the same &amp;ldquo;.resx &amp;rdquo; files you would be using when localizing an application without the Multilingual App Toolkit.&lt;/p&gt;
@@ -147,21 +147,21 @@ The Multilingual App Toolkit helps you in this process. It allows you to easily 
 
 &lt;p&gt;If you happen to speak the language you&amp;rsquo;re adding to your application, you can translate it all by yourself. Simply go through the list of strings at the bottom and type the translation for each item in the &lt;em&gt;Translation&lt;/em&gt; field. Notice that each string has an icon to its left. This represents the state of each translation. You can use this to, for example, mark some string for later review. This feature is really useful when sharing translation files with other people.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT6.gif&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT6.gif&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h3 id=&#34;translate-using-microsoft-translator-service:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Translate using Microsoft Translator Service&lt;/h3&gt;
 
 &lt;p&gt;The Microsoft Tranlator service can also be used to help you in your localization process, either by providing suggestions for each translation or by completely replacing a string with its translation. To use the Microsoft Translator service, simply select the string you want to translate and click on the options in the toolbar.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT7.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT7.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;As you may know, machine translation is not perfect because of the complexity of the human language. When you use this service to translate a string (or a group of strings), you&amp;rsquo;ll notice that they are flagged as being MTed (Machine Translated) and that their state is set to &lt;em&gt;Needs Review&lt;/em&gt;. You can later accept this translation or make changes to suit your style.&lt;/p&gt;
 
 &lt;p&gt;To translate all the strings in a file using the Microsoft Translator service, click the arrow bellow the &lt;strong&gt;Translate&lt;/strong&gt; button and select &lt;strong&gt;Translate All&lt;/strong&gt;. You can also right click the .xlf file in the Solution Explorer and select &lt;strong&gt;Generate machine translations&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT8.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT8.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h2 id=&#34;share-a-translation-files:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Share a translation files&lt;/h2&gt;
@@ -174,14 +174,14 @@ The Multilingual App Toolkit helps you in this process. It allows you to easily 
 
 &lt;p&gt;&amp;ldquo;Note that you can export multiple files at once. Select the files you want to export in the Solution Explorer while pressing &lt;em&gt;Ctrl&lt;/em&gt; and follow the steps above.&amp;rdquo;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT9.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT9.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h3 id=&#34;import-a-translation-file:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Import a translation file&lt;/h3&gt;
 
 &lt;p&gt;Right click the matching .xlf file in your solution and select &lt;strong&gt;Import translation&amp;hellip;&lt;/strong&gt;. If the languages for each file are not the same, the importing will fail.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT10.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT10.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h2 id=&#34;test-a-localized-application:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Test a localized application&lt;/h2&gt;
@@ -201,7 +201,7 @@ Thread.CurrentThread.CurrentUICulture = new CultureInfo(&amp;quot;pt&amp;quot;);
 
 &lt;p&gt;After translating our example application to Portuguese, this is what it looks like:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/WPMAT11.gif&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/WPMAT11.gif&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h2 id=&#34;final-words:d75c5c8aeef46df8400d5a6ebfe21f5e&#34;&gt;Final words&lt;/h2&gt;
@@ -214,10 +214,10 @@ Thread.CurrentThread.CurrentUICulture = new CultureInfo(&amp;quot;pt&amp;quot;);
     
     <item>
       <title>Accessing Instagram from your Windows Phone Application</title>
-      <link>https://pedroq.org/2013/08/accessing-instagram-from-your-windows-phone-application/</link>
+      <link>http://pedroq.org/2013/08/accessing-instagram-from-your-windows-phone-application/</link>
       <pubDate>Mon, 12 Aug 2013 13:32:00 +0100</pubDate>
       
-      <guid>https://pedroq.org/2013/08/accessing-instagram-from-your-windows-phone-application/</guid>
+      <guid>http://pedroq.org/2013/08/accessing-instagram-from-your-windows-phone-application/</guid>
       <description>
 
 &lt;p&gt;Instagram is a popular online photo and video sharing social network. It allows its users to take pictures and videos, apply digital filters to them, and then share them with the community. At the moment there is no official Windows Phone support but there is an API that you can use to access the content that is shared by the users. &lt;em&gt;Note that the current API does not allow non-official clients to upload photos.&lt;/em&gt;&lt;/p&gt;
@@ -234,7 +234,7 @@ Thread.CurrentThread.CurrentUICulture = new CultureInfo(&amp;quot;pt&amp;quot;);
 
 &lt;p&gt;In order to be able to use Instagram API, you must &lt;a href=&#34;http://instagram.com/developer/clients/register/&#34;&gt;register your application&lt;/a&gt; to get an API Key. In this example we&amp;rsquo;ll use  for the &lt;em&gt;Redirect URI&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/InstagrapWP-CreateApp.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/InstagrapWP-CreateApp.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Take a note of your Client ID and Client Secret as we&amp;rsquo;ll be needing them later.&lt;/p&gt;
@@ -377,7 +377,7 @@ Thread.CurrentThread.CurrentUICulture = new CultureInfo(&amp;quot;pt&amp;quot;);
 
 &lt;p&gt;Thanks to this sample data, you can see how your application will look like when populated with data:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/InstagramWP-SampleData.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/InstagramWP-SampleData.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h2 id=&#34;using-instagram-api:8e317ca018c0dea81391e150ff9a68f7&#34;&gt;Using Instagram API&lt;/h2&gt;
@@ -392,7 +392,7 @@ Thread.CurrentThread.CurrentUICulture = new CultureInfo(&amp;quot;pt&amp;quot;);
 
 &lt;p&gt;Add a new Blank Page and name it Authentication.xaml. Add a &lt;code&gt;WebBrowser&lt;/code&gt; control and name it &lt;code&gt;AuthBrowser&lt;/code&gt;. Add the &lt;code&gt;Navigated()&lt;/code&gt; event handler to the &lt;code&gt;AuthBrowser&lt;/code&gt;. We will use this &lt;code&gt;WebBrowser&lt;/code&gt; control to obtain an access token that we can use to access the API.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/InstagrapWP-SignInDesign.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/InstagrapWP-SignInDesign.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -458,7 +458,7 @@ void AuthBrowser_Navigated(object sender, NavigationEventArgs e)
 
 &lt;p&gt;Try and run your app. The authentication process will look like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://pedroq.org/media/2013/Aug/InstagrapWP-SignIn.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://pedroq.org/media/2013/Aug/InstagrapWP-SignIn.png&#34; alt=&#34;&#34; /&gt;
 &lt;/p&gt;
 
 &lt;h3 id=&#34;accessing-content:8e317ca018c0dea81391e150ff9a68f7&#34;&gt;Accessing content&lt;/h3&gt;
