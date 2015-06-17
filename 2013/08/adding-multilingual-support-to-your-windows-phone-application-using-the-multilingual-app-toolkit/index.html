@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Adding multilingual support to your Windows Phone application using the Multilingual App Toolkit &middot; pedro querido</title>
+
+  
+  <link rel="stylesheet" href="http://pedroq.org/css/poole.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/hyde.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/hyde-x.css">
+  
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>pedro querido</h1>
+      <p class="lead">developer, geek, and serious music addict.</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://pedroq.org">Home</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/about/">About me</a></li>
+      
+    </ul>
+
+    <div class="sidebar-links">
+        <a href="http://twitter.com/PedroQ" rel="external" title="My Twitter"><i class="fa fa-twitter"></i></a>&nbsp;
+        <a href="https://github.com/pedroq" rel="external" title="My GitHub"><i class="fa fa-github-alt"></i></a>&nbsp;
+        <a href="http://pt.linkedin.com/in/pedroq/" rel="external" title="My LinkedIn profile"><i class="fa fa-linkedin"></i></a>
+    </div>
+    <div class="sidebar-info">
+        Copyright &copy; 2015 Pedro Querido. <br/>
+        Content under the <a rel="external" title="Creative Commons Attribution" href="http://creativecommons.org/licenses/by/2.5/">CC BY 3.0</a> license. <br/>
+        Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Adding multilingual support to your Windows Phone application using the Multilingual App Toolkit</h1>
+    <span class="post-date">Aug 19, 2013 &middot; 6 minute read
+    
+    <br/>
+    
+    <a class="label" href="http://pedroq.org/categories/windows-phone">Windows Phone</a>
+    </span>
+    
+
+<p>Windows Phone Store is currently available in 191 countries. This allows your application to have a global customer reach. This also means a lot of customer diversity. Language is one of these differences. Building and application that can target multiple languages can help provide a great user experience for as many users around the world as possible. <br />
+The Multilingual App Toolkit helps you in this process. It allows you to easily localize your app, either by yourself or using Microsoft Translator. You can also share this translation files with someone and then import them into your project. You can also import these translation files into a Windows 8 application.</p>
+
+<h2 id="prerequisites:d75c5c8aeef46df8400d5a6ebfe21f5e">Prerequisites</h2>
+
+<p>In order to user the Multilingual App Toolkit your application must be built or modified in order to support localization. This means that all your localized resources are separated from the code. MSDN has a great article on <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff637520%28v=vs.105%29.aspx">How to build a localized app for Windows Phone</a>.</p>
+
+<h3 id="multilingual-app-toolkit:d75c5c8aeef46df8400d5a6ebfe21f5e">Multilingual App Toolkit</h3>
+
+<p>You can download the Multilingual App Toolkit here: <a href="http://msdn.microsoft.com/en-us/windows/apps/hh848309.aspx">Multilingual App Toolkit for Visual Studio 2012</a></p>
+
+<h2 id="example-application:d75c5c8aeef46df8400d5a6ebfe21f5e">Example application</h2>
+
+<p>For this article we&rsquo;ll create a simple Hello world! application based on the Windows Phone App template. It is a simple page with a Button and a TextBlock which displays a message when you tap the button.</p>
+
+<p><img src="/media/2013/Aug/WPMAT1.gif" alt="" />
+</p>
+
+<p>This is the code for the <strong>MainPage.xaml</strong>:</p>
+
+<pre><code>&lt;StackPanel x:Name=&quot;TitlePanel&quot; Grid.Row=&quot;0&quot; Margin=&quot;12,17,0,28&quot;&gt;
+    &lt;TextBlock Text=&quot;{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}&quot; Style=&quot;{StaticResource PhoneTextNormalStyle}&quot; Margin=&quot;12,0&quot;/&gt;
+    &lt;TextBlock Text=&quot;{Binding Path=LocalizedResources.MainPageName, Source={StaticResource LocalizedStrings}}&quot; Margin=&quot;9,-7,0,0&quot; Style=&quot;{StaticResource PhoneTextTitle1Style}&quot;/&gt;
+&lt;/StackPanel&gt;
+
+&lt;!--ContentPanel - place additional content here--&gt;
+&lt;Grid x:Name=&quot;ContentPanel&quot; Grid.Row=&quot;1&quot; Margin=&quot;12,0,12,0&quot;&gt;
+    &lt;Button Content=&quot;{Binding Path=LocalizedResources.ButtonText, Source={StaticResource LocalizedStrings}}&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Top&quot; Click=&quot;Button_Click&quot;/&gt;
+    &lt;TextBlock x:Name=&quot;tbMessage&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot; FontSize=&quot;72&quot; /&gt;
+&lt;/Grid&gt;
+</code></pre>
+
+<p>And the code behind:</p>
+
+<pre><code>private void Button_Click(object sender, RoutedEventArgs e)
+{
+    tbMessage.Text = AppResources.HelloMessage;
+}
+</code></pre>
+
+<p>A few entries were added to the <strong>AppResources.resx</strong>. It looks like this:</p>
+
+<p><img src="/media/2013/Aug/WPMAT2.png" alt="" />
+</p>
+
+<h2 id="enable-the-multilingual-app-toolkit:d75c5c8aeef46df8400d5a6ebfe21f5e">Enable the Multilingual App Toolkit</h2>
+
+<p>To begin using the Multilingual App Toolkit you must first enable it. Open your project in Visual Studio, open <strong>Tools</strong> menu and select <strong>Enable Multilingual App Toolkit</strong>.</p>
+
+<p><img src="/media/2013/Aug/WPMAT3.png" alt="" />
+</p>
+
+<h2 id="add-new-languages:d75c5c8aeef46df8400d5a6ebfe21f5e">Add new languages</h2>
+
+<p>To add a new language, go to the Solution Explorer and right-click your project. Select <strong>Add translation languages&hellip;</strong>.</p>
+
+<p><img src="/media/2013/Aug/WPMAT4.png" alt="" />
+</p>
+
+<p>In the <em>Translation Languages</em> window select the language(s) you want to add. In this example we&rsquo;ll add Portuguese localization to our application.</p>
+
+<p><img src="/media/2013/Aug/WPMAT5.png" alt="" />
+</p>
+
+<p>A new file called <strong>AppResources.<em><culture-code></em>.xlf</strong> is added to the <em>Resources</em> folder. This is a <a href="https://en.wikipedia.org/wiki/XLIFF">XLIFF</a>] file where localizable data is stored. You can export and import this file into your project. This allows you to share this file with a translator and later import it into your project. These <em>.xlf</em> files are converted into <em>.resx</em> files during compilation. These are are the same &ldquo;.resx &rdquo; files you would be using when localizing an application without the Multilingual App Toolkit.</p>
+
+<h2 id="multilingual-editor-tool:d75c5c8aeef46df8400d5a6ebfe21f5e">Multilingual Editor tool</h2>
+
+<p>Double click the file that was created in the previous step. The Multilingual Editor window will open. You can use this tool to translate your application in multiple ways:</p>
+
+<h3 id="translate-your-application-by-yourself:d75c5c8aeef46df8400d5a6ebfe21f5e">Translate your application by yourself</h3>
+
+<p>If you happen to speak the language you&rsquo;re adding to your application, you can translate it all by yourself. Simply go through the list of strings at the bottom and type the translation for each item in the <em>Translation</em> field. Notice that each string has an icon to its left. This represents the state of each translation. You can use this to, for example, mark some string for later review. This feature is really useful when sharing translation files with other people.</p>
+
+<p><img src="/media/2013/Aug/WPMAT6.gif" alt="" />
+</p>
+
+<h3 id="translate-using-microsoft-translator-service:d75c5c8aeef46df8400d5a6ebfe21f5e">Translate using Microsoft Translator Service</h3>
+
+<p>The Microsoft Tranlator service can also be used to help you in your localization process, either by providing suggestions for each translation or by completely replacing a string with its translation. To use the Microsoft Translator service, simply select the string you want to translate and click on the options in the toolbar.</p>
+
+<p><img src="/media/2013/Aug/WPMAT7.png" alt="" />
+</p>
+
+<p>As you may know, machine translation is not perfect because of the complexity of the human language. When you use this service to translate a string (or a group of strings), you&rsquo;ll notice that they are flagged as being MTed (Machine Translated) and that their state is set to <em>Needs Review</em>. You can later accept this translation or make changes to suit your style.</p>
+
+<p>To translate all the strings in a file using the Microsoft Translator service, click the arrow bellow the <strong>Translate</strong> button and select <strong>Translate All</strong>. You can also right click the .xlf file in the Solution Explorer and select <strong>Generate machine translations</strong>.</p>
+
+<p><img src="/media/2013/Aug/WPMAT8.png" alt="" />
+</p>
+
+<h2 id="share-a-translation-files:d75c5c8aeef46df8400d5a6ebfe21f5e">Share a translation files</h2>
+
+<p>Sometimes you may want to add support for a language that you may not know very well. In this case you can share the XLIFF file with another person (or service) so that they can translate it for you. XLIFF is a format that is supported by a lot of applications. You can also open this type of files using the Multilingual App Toolkit. It can be used standalone. Just look for it in your Start Menu.</p>
+
+<h3 id="exporting-a-file-for-translation:d75c5c8aeef46df8400d5a6ebfe21f5e">Exporting a file for translation</h3>
+
+<p>Right click the file you want to export and select <strong>Send for translation&hellip;</strong>. Select <strong>File folder location</strong> if you want to save the .xlf file to a local folder or select <strong>Mail recipient</strong> if you want to send the .xlf by email. Select <strong>Use compressed (zipped) folder</strong> if you want to compress the file before saving or sending.</p>
+
+<p>&ldquo;Note that you can export multiple files at once. Select the files you want to export in the Solution Explorer while pressing <em>Ctrl</em> and follow the steps above.&rdquo;</p>
+
+<p><img src="/media/2013/Aug/WPMAT9.png" alt="" />
+</p>
+
+<h3 id="import-a-translation-file:d75c5c8aeef46df8400d5a6ebfe21f5e">Import a translation file</h3>
+
+<p>Right click the matching .xlf file in your solution and select <strong>Import translation&hellip;</strong>. If the languages for each file are not the same, the importing will fail.</p>
+
+<p><img src="/media/2013/Aug/WPMAT10.png" alt="" />
+</p>
+
+<h2 id="test-a-localized-application:d75c5c8aeef46df8400d5a6ebfe21f5e">Test a localized application</h2>
+
+<p>You can test a different language by changing the display language on your phone (or emulator). Check this article for more information: <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh487168%28v=vs.105%29.aspx">How to test a localized app for Windows Phone</a></p>
+
+<p>In alternative, you can force your application to use a different language by adding the following line to the beginning of the App constructor in <em>App.xaml.cs</em>:</p>
+
+<pre><code>using System.Globalization;
+using System.Threading;
+...
+
+Thread.CurrentThread.CurrentUICulture = new CultureInfo(&quot;pt&quot;);
+</code></pre>
+
+<p>Replace the <strong>pt</strong> string with the language code you want to test.</p>
+
+<p>After translating our example application to Portuguese, this is what it looks like:</p>
+
+<p><img src="/media/2013/Aug/WPMAT11.gif" alt="" />
+</p>
+
+<h2 id="final-words:d75c5c8aeef46df8400d5a6ebfe21f5e">Final words</h2>
+
+<p>As said before, by having an app in the Windows Phone Store you can reach a lot of different cultures. English may be a globally spoken language, but if you can adapt your application to better target a specific culture, you will be providing your users a better experience. And if a user likes your application, he will certainly recommend it to other people, giving you a larger user base. Tools like the Multilingual App Toolkit can help you achieve this.</p>
+
+<p>This article was originally created for the <a href="http://developer.nokia.com/Community/Wiki/Adding_multilingual_support_to_your_Windows_Phone_application_using_the_Multilingual_App_Toolkit">Nokia Developer Wiki</a>.<br /> This is the official Nokia wiki, dedicated to development on Nokia platforms. You can find a lot of great articles, code examples and many other resources. Be sure to check it!</p>
+
+  </div>
+  
+</div>
+
+
+
+
+
+
+</body>
+</html>
+

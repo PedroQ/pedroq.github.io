@@ -1,0 +1,29 @@
+/*
+ * Tweaks and overrides to hyde.css
+ */
+
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-weight: lighter;
+}
+
+.sidebar-nav {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.sidebar-links {
+    padding: 1rem 0px 0.5rem;
+    text-align: center;
+}
+
+.sidebar-links a {
+    font-size: 1.5em;
+}
+
+.sidebar-info {
+    text-align: center;
+    font-size: 0.6em;
+}

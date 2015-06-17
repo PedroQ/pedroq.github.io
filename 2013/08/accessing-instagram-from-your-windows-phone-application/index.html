@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Accessing Instagram from your Windows Phone Application &middot; pedro querido</title>
+
+  
+  <link rel="stylesheet" href="http://pedroq.org/css/poole.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/hyde.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://pedroq.org/css/hyde-x.css">
+  
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>pedro querido</h1>
+      <p class="lead">developer, geek, and serious music addict.</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://pedroq.org">Home</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/about/">About me</a></li>
+      
+    </ul>
+
+    <div class="sidebar-links">
+        <a href="http://twitter.com/PedroQ" rel="external" title="My Twitter"><i class="fa fa-twitter"></i></a>&nbsp;
+        <a href="https://github.com/pedroq" rel="external" title="My GitHub"><i class="fa fa-github-alt"></i></a>&nbsp;
+        <a href="http://pt.linkedin.com/in/pedroq/" rel="external" title="My LinkedIn profile"><i class="fa fa-linkedin"></i></a>
+    </div>
+    <div class="sidebar-info">
+        Copyright &copy; 2015 Pedro Querido. <br/>
+        Content under the <a rel="external" title="Creative Commons Attribution" href="http://creativecommons.org/licenses/by/2.5/">CC BY 3.0</a> license. <br/>
+        Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Accessing Instagram from your Windows Phone Application</h1>
+    <span class="post-date">Aug 12, 2013 &middot; 9 minute read
+    
+    <br/>
+    
+    <a class="label" href="http://pedroq.org/categories/windows-phone">Windows Phone</a>
+    </span>
+    
+
+<p>Instagram is a popular online photo and video sharing social network. It allows its users to take pictures and videos, apply digital filters to them, and then share them with the community. At the moment there is no official Windows Phone support but there is an API that you can use to access the content that is shared by the users. <em>Note that the current API does not allow non-official clients to upload photos.</em></p>
+
+<p>This post will show you how to integrate Instagram in your application. For this example, we&rsquo;ll create a simple app to retrieve the list of your followers and the users you&rsquo;re following.</p>
+
+<h2 id="prerequisites:8e317ca018c0dea81391e150ff9a68f7">Prerequisites</h2>
+
+<p>To be able to access the Instagram API you must have an Instagram account. This account is free but can only be created using an official Instagram client, available for Android and iOS.</p>
+
+<h3 id="getting-your-api-key:8e317ca018c0dea81391e150ff9a68f7">Getting your API key</h3>
+
+<p>First of all, you must be registered as a developer. You can register by filling the <a href="http://instagram.com/developer/register/">Developer Signup Form</a>. Make sure you read their <a href="http://instagram.com/about/legal/terms/api/">API Terms of Use</a>!</p>
+
+<p>In order to be able to use Instagram API, you must <a href="http://instagram.com/developer/clients/register/">register your application</a> to get an API Key. In this example we&rsquo;ll use  for the <em>Redirect URI</em>.</p>
+
+<p><img src="/media/2013/Aug/InstagrapWP-CreateApp.png" alt="" />
+</p>
+
+<p>Take a note of your Client ID and Client Secret as we&rsquo;ll be needing them later.</p>
+
+<h2 id="setting-up-the-project:8e317ca018c0dea81391e150ff9a68f7">Setting up the project</h2>
+
+<p>For this example we&rsquo;ll start with the Windows Phone Panorama App template and modify it to accustom our needs. Open a new instance of Visual Studio and create a <strong>Windows Phone Panorama App</strong> project.</p>
+
+<h3 id="adding-references:8e317ca018c0dea81391e150ff9a68f7">Adding references</h3>
+
+<p>Next we&rsquo;ll add some NuGet packages that we will need:</p>
+
+<ul>
+<li><strong>Microsoft HTTP Client Libraries</strong> (<a href="https://nuget.org/packages/Microsoft.Net.Http">Microsoft.Net.Http</a>) which contains the <code>HttpClient</code> class that will be used to make HTTP calls to the Instagram API</li>
+<li><strong>Json.NET</strong> (<a href="https://nuget.org/packages/Newtonsoft.Json">Newtonsoft.Json</a>) will help parse the JSON responses</li>
+<li><strong>Async for Windows Phone 7.5</strong> (<a href="https://nuget.org/packages/Microsoft.Bcl.Async">Microsoft.Bcl.Async</a>) allows the use of the new async features (<em>required only for Windows Phone 7.5</em>)</li>
+</ul>
+
+<p>To install NuGet packages you can go to the Solution Explorer, right click the project file and select <strong>Manage NuGet Packages</strong>. Search for the package name and click Install. You can also use the <a href="http://docs.nuget.org/docs/start-here/using-the-package-manager-console">Package Manager Console</a> to install these packages.</p>
+
+<h3 id="modifying-the-panorama-template:8e317ca018c0dea81391e150ff9a68f7">Modifying the Panorama template</h3>
+
+<p>Start by renaming the <strong>ItemViewModel.cs</strong> located under ViewModels to <strong>UserViewModel.cs</strong>. This class will hold the information for each Instagram user. In this article we&rsquo;ll just use Username, Full Name and Profile Picture.</p>
+
+<p>Open <strong>UserViewModel.cs</strong> and rename the <em>ItemViewModel</em> class to <em>UserViewModel</em>. Now change the properties of this class to <em>Username</em>, <em>FullName</em> and <em>ProfilePicUrl</em>. Your class should look similar to this:</p>
+
+<pre><code>public class UserViewModel : INotifyPropertyChanged
+{
+    private string _username;
+    public string Username
+    {
+        get
+        {
+            return _username;
+        }
+        set
+        {
+            if (value != _username)
+            {
+                _username = value;
+                NotifyPropertyChanged(&quot;Username&quot;);
+            }
+        }
+    }
+
+    private string _fullName;
+    public string FullName
+    {
+        get
+        {
+            return _fullName;
+        }
+        set
+        {
+            if (value != _fullName)
+            {
+                _fullName = value;
+                NotifyPropertyChanged(&quot;FullName&quot;);
+            }
+        }
+    }
+
+    private string _profilePicUrl;
+    public string ProfilePicUrl
+    {
+        get
+        {
+            return _profilePicUrl;
+        }
+        set
+        {
+            if (value != _profilePicUrl)
+            {
+                _profilePicUrl = value;
+                NotifyPropertyChanged(&quot;ProfilePicUrl&quot;);
+            }
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    private void NotifyPropertyChanged(String propertyName)
+    {
+        PropertyChangedEventHandler handler = PropertyChanged;
+        if (null != handler)
+        {
+            handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}
+</code></pre>
+
+<p>Now open <strong>MainViewModel.cs</strong>. Change the <code>Items</code> property name to <code>Following</code>. This collection will hold all the users that you are currently following. Add another property named <code>Followers</code>, which will store all the users that are following you. You can also delete the <code>SampleProperty</code> and the sample items inside the <code>LoadData()</code> method. Your file should now look similar to this:</p>
+
+<pre><code>public class MainViewModel : INotifyPropertyChanged
+{
+    public MainViewModel()
+    {
+
+    }
+
+    public ObservableCollection Following { get; private set; }
+    public ObservableCollection Followers { get; private set; }
+
+
+    public bool IsDataLoaded
+    {
+        get;
+        private set;
+    }
+
+    public void LoadData()
+    {
+        // TODO
+
+        this.IsDataLoaded = true;
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    private void NotifyPropertyChanged(String propertyName)
+    {
+        PropertyChangedEventHandler handler = PropertyChanged;
+        if (null != handler)
+        {
+            handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}
+</code></pre>
+
+<p>Now we need to change the UI to reflect this changes. Open the <strong>MainPage.xaml</strong> and change your Panorama control to the following:</p>
+
+<p>Finally open <strong>MainViewModelSampleData.xaml</strong> under the <strong>SampleData</strong> folder. This file holds the sample data that populates the UI during design time. Since we changed our view models we must also modify the sample data to reflect our changes.</p>
+
+<p>We&rsquo;ll be using the default Application Icon as a Profile Picture for your users. Replace the existing data with the following:</p>
+
+<p>Also, be sure to remove the line:</p>
+
+<pre><code>SampleProperty=&quot;Sample Text Property Value&quot;
+</code></pre>
+
+<p>Thanks to this sample data, you can see how your application will look like when populated with data:</p>
+
+<p><img src="/media/2013/Aug/InstagramWP-SampleData.png" alt="" />
+</p>
+
+<h2 id="using-instagram-api:8e317ca018c0dea81391e150ff9a68f7">Using Instagram API</h2>
+
+<p>All the API endpoints are located at <strong>api.instagram.com</strong> and are only accessible via http<strong>s</strong>.</p>
+
+<p>Be sure to check <a href="http://instagram.com/developer">Instagram Developer Documentation</a>.</p>
+
+<h3 id="oauth-authentication:8e317ca018c0dea81391e150ff9a68f7">OAuth Authentication</h3>
+
+<p>In order to be able to access the Instagram API you must first authenticate using the OAuth 2.0 protocol. For more information about this protocol see <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-12">the current draft</a>. You can also check this article: <a href="http://www.developer.nokia.com/Community/Wiki/OAuth_on_Windows_Phone" title="OAuth on Windows Phone">OAuth on Windows Phone</a>.</p>
+
+<p>Add a new Blank Page and name it Authentication.xaml. Add a <code>WebBrowser</code> control and name it <code>AuthBrowser</code>. Add the <code>Navigated()</code> event handler to the <code>AuthBrowser</code>. We will use this <code>WebBrowser</code> control to obtain an access token that we can use to access the API.</p>
+
+<p><img src="/media/2013/Aug/InstagrapWP-SignInDesign.png" alt="" />
+</p>
+
+<pre><code>protected override void OnNavigatedTo(NavigationEventArgs e)
+{
+    base.OnNavigatedTo(e);
+    AuthBrowser.Navigate(new Uri(&quot;https://instagram.com/oauth/authorize/?client_id=&amp;amp;redirect_uri=http://instagram.com&amp;amp;response_type=token&quot;));
+}
+
+void AuthBrowser_Navigated(object sender, NavigationEventArgs e)
+{
+    //access token is a Url fragment and these fragments start with '#'
+    if (e.Uri.AbsoluteUri.Contains('#'))
+    {
+        //parse our access token
+        if (e.Uri.Fragment.StartsWith(&quot;#access_token=&quot;))
+        {
+            string token = e.Uri.Fragment.Replace(&quot;#access_token=&quot;, string.Empty);
+
+            //save our token
+            IsolatedStorageSettings.ApplicationSettings[&quot;access_token&quot;] = token;
+            IsolatedStorageSettings.ApplicationSettings.Save();
+
+            //now that we have our token, let's go back to the MainPage
+            NavigationService.GoBack();
+        }
+    }
+}
+</code></pre>
+
+<p>Make sure you replace <strong>YOUR_CLIENT_ID</strong> with your own Client ID.</p>
+
+<p>By default all apps have read access. If you wish to use extended access, such as liking, commenting, or managing friendships you&rsquo;ll need to add the <strong>scope</strong> parameter to your request url. According to the <a href="http://instagram.com/developer/authentication/">Instagram API documentation</a>, these are the currently supported scopes:</p>
+
+<ul>
+<li><strong>basic</strong> - to read any and all data related to a user (e.g. following/followed-by lists, photos, etc.) (granted by default)</li>
+<li><strong>comments</strong> - to create or delete comments on a user’s behalf</li>
+<li><strong>relationships</strong> - to follow and unfollow users on a user’s behalf</li>
+<li><strong>likes</strong> - to like and unlike items on a user’s behalf</li>
+</ul>
+
+<p>You should only request the scope you need at the time of authorization. If in the future you require additional scope, you may forward the user to the authorization URL with that additional scope to be granted. If you attempt to perform a request with an access token that isn&rsquo;t authorized for that scope, you will receive an <code>OAuthPermissionsException</code> error return.</p>
+
+<p>If you’d like to request multiple scopes at once, simply separate the scopes by a space. In the url, this equates to an escaped space (“%2B”). So if you’re requesting the likes and comments permission, the parameter will look like this: <em>scope=likes%2Bcomments</em></p>
+
+<p>Note that an empty scope parameter (scope=) is invalid; you must either omit the scope, or specify a non-empty scope list.</p>
+
+<p>Finally go to <strong>MainPage.xaml.cs</strong>. Change the <code>MainPage_Loaded</code> event handler so that you can redirect the user to the <code>Authentication</code> view you created.</p>
+
+<pre><code>private void MainPage_Loaded(object sender, RoutedEventArgs e)
+{
+
+    if (IsolatedStorageSettings.ApplicationSettings.Contains(&quot;access_token&quot;))
+    {
+        if (!App.ViewModel.IsDataLoaded)
+        {
+            App.ViewModel.LoadData();
+        }
+    }
+    else
+        NavigationService.Navigate(new Uri(&quot;/Authentication.xaml&quot;, UriKind.Relative));
+}
+</code></pre>
+
+<p>Try and run your app. The authentication process will look like this:</p>
+
+<p><img src="/media/2013/Aug/InstagrapWP-SignIn.png" alt="" />
+</p>
+
+<h3 id="accessing-content:8e317ca018c0dea81391e150ff9a68f7">Accessing content</h3>
+
+<p>Now that we have an access token, we can start making API calls. As mentioned earlier, for this example, we&rsquo;ll get the list of followers and the list of people that we&rsquo;re following.</p>
+
+<p>Create a class named <strong>InstagramAPI.cs</strong>. In this file we&rsquo;ll put all the code required to use the API.</p>
+
+<pre><code>using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+public class InstagramAPI
+{
+    private readonly string apiBaseUrl = &quot;https://api.instagram.com/v1&quot;;
+    private readonly string apiAccessToken;
+
+    private HttpClient _httpClient;
+
+    public InstagramAPI(string accessToken)
+    {
+        this.apiAccessToken = accessToken;
+        _httpClient = new HttpClient();
+    }
+
+    private async Task SendAsync(HttpRequestMessage request) where T : class
+    {
+
+        HttpResponseMessage response;
+        response = await _httpClient.SendAsync(request);
+
+        //TODO: Error Handling
+        if (response.StatusCode == HttpStatusCode.OK)
+        {
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject(responseBody);
+        }
+
+        return null;
+    }
+
+    public async Task GetFollowers()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, apiBaseUrl %2B &quot;/users/self/followed-by?access_token=&quot; %2B apiAccessToken);
+        var followersResponse =  await SendAsync(request);
+        var result = new ObservableCollection();
+        foreach (var u in followersResponse.data)
+        {
+            result.Add(new UserViewModel() { FullName = u.full_name, Username = u.username, ProfilePicUrl = u.profile_picture });
+        }
+        return result;
+    }
+
+    public async Task GetFollowing()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, apiBaseUrl %2B &quot;/users/self/follows?access_token=&quot; %2B apiAccessToken);
+        var followingResponse = await SendAsync(request);
+        var result = new ObservableCollection();
+        foreach (var u in followingResponse.data)
+        {
+            result.Add(new UserViewModel() { FullName = u.full_name, Username = u.username, ProfilePicUrl = u.profile_picture });
+        }
+        return result;
+    }
+}
+
+public class InstagramUser
+{
+    public string username { get; set; }
+    public string bio { get; set; }
+    public string website { get; set; }
+    public string profile_picture { get; set; }
+    public string full_name { get; set; }
+    public string id { get; set; }
+}
+
+public class InstagramResponse
+{
+    public List data { get; set; }
+}
+</code></pre>
+
+<p>The <code>SendAsync</code> method is a generic method that can be used to send a request and return a specific type of object. It uses the <strong>Json.Net</strong> package to parse the JSON response and map it to a .Net object, <code>InstagramUser</code> and <code>InstagramResponse</code> in this example.</p>
+
+<h3 id="displaying-the-content:8e317ca018c0dea81391e150ff9a68f7">Displaying the content</h3>
+
+<p>Finally we need to display the data in the UI. Go to the <strong>MainViewModel.cs</strong> file and locate the <code>LoadData()</code> method. Add the following code:</p>
+
+<pre><code>public async void LoadData()
+{
+    string accessToken = (string)IsolatedStorageSettings.ApplicationSettings[&quot;access_token&quot;];
+
+    InstagramAPI apiClient = new InstagramAPI(accessToken);
+    Following = await apiClient.GetFollowing();
+    NotifyPropertyChanged(&quot;Following&quot;);
+    Followers =  await apiClient.GetFollowers();
+    NotifyPropertyChanged(&quot;Followers&quot;);
+    this.IsDataLoaded = true;
+}
+</code></pre>
+
+<p>That&rsquo;s it, you should now be able to see the users you are following and a list of people that follow you!</p>
+
+<h2 id="summary:8e317ca018c0dea81391e150ff9a68f7">Summary</h2>
+
+<p>This should give you an idea on how easy is to access Instagram from your Windows Phone application. Be sure to check the <a href="http://instagram.com/developer">Instagram API documentation</a> to understand the various features that you can integrate into your application.</p>
+
+<iframe src="https://skydrive.live.com/embed?cid=FE1F5056FC3DA96F&resid=FE1F5056FC3DA96F%211080&authkey=AHaK9Q4wBjUjoUw" width="98" height="120" frameborder="0" scrolling="no"></iframe>
+
+<p>This article was originally created for the <a href="http://developer.nokia.com/Community/Wiki/Accessing_Instagram_from_your_Windows_Phone_Application">Nokia Developer Wiki</a>.<br /> This is the official Nokia wiki, dedicated to development on Nokia platforms. You can find a lot of great articles, code examples and many other resources. Be sure to check it!</p>
+
+  </div>
+  
+</div>
+
+
+
+
+
+
+</body>
+</html>
+
